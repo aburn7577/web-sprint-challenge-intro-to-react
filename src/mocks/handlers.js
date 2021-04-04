@@ -152,6 +152,7 @@ export const data = [
     edited: "2014-12-20T21:17:50.317000Z",
     url: "http://swapi.dev/api/people/6/",
   },
+
 ];
 
 export const films = [

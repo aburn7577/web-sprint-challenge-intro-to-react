@@ -2,18 +2,25 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import Axios from 'axios'
 import Character from './components/Character'
-import Styled from 'styled-components'
+import styled from 'styled-components'
+
+
+const Style = styled.div`
+  display:flex;
+  flex-direction: column;
+  `
 
 
 const App = () => {
   const [people, setPeople] = useState([])
-  const [info, setInfo] = useState(null)
+
 
   // Try to think through what state you'll need for this app before starting. Then build out
   // the state properties here.
   useEffect(() => {
     Axios.get('https://swapi.dev/api/people/')
       .then(res => {
+
         setPeople(res.data)
       })
       .catch(error => {
@@ -26,8 +33,8 @@ const App = () => {
   // sync up with, if any.
 
   return (
-    <div className="App">
-      <h1 className="Header">Characters</h1>
+    <Style className="App">
+      <h1 className="Header">React Wars</h1>
       {people.map(obj => {
         return (
           <Character
@@ -36,9 +43,8 @@ const App = () => {
           />
         )
       })
-
       }
-    </div>
+    </Style>
   );
 }
 
